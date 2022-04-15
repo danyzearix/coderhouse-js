@@ -1,6 +1,8 @@
 /* Desafio complementario #1 */
 
 //Contar de 10 en 10 hasta llegar a 100
+alert("Vamos a contar hasta 100 de 10 en 10");
+
 
 for (let i = 0; i <= 100; i += 10) {
   alert(i);
