@@ -1,137 +1,82 @@
-/* Desafio complementario #1 
+//Clase constructora
 
-//Contar de 10 en 10 hasta llegar a 100
-alert("Vamos a contar hasta 100 de 10 en 10");
+class ObjetoCotizador{
+  constructor(label, precio, complejidad){
+    this.label = label
+    this.precio =  precio
+    this.complejidad = complejidad
+  }
+};
 
+//Crear objetos 
 
-for (let i = 0; i <= 100; i += 10) {
-  alert(i);
-}
+//Tipo de tecnologia
+let tecnologiaUno = new ObjetoCotizador ("Nativa", 2500, "alta");
+let tecnologiaDos = new ObjetoCotizador ("Hibrida", 3000, "media");
+let tecnologiaTres = new ObjetoCotizador ("PWA", 1500, "baja")
 
-// Contar hasta 10 y mostrar un alert
+//Sistemas operativos nativos
+let sistemaOperativoUno = new ObjetoCotizador ("Android", 1500, "media");
+let sistemaOperativoDos = new ObjetoCotizador ("iOS", 2500, "alta");
+let sistemaOperativoTres = new ObjetoCotizador ("WebApp", 1000, "baja");
 
-alert("Relajate, vamos a contar hasta 10")
+//Sistema hibrido
+let sistemaHibrido = new ObjetoCotizador ("Android y iOS", 5000, "alta");
 
-let i = 1;
+//Diseño
+let plantilla = new ObjetoCotizador ("Plantilla", 500, "bajo");
+let propio = new ObjetoCotizador ("Propio", 1000, "medio");
+let avanzado = new ObjetoCotizador ("Avanzado a medida", 2700, "alto");
 
-while (i < 11) {
-    alert(`Cuenta ${i}`)
+//Carácteristica login
+let nologin = new ObjetoCotizador ("Sin login", 0, "ninguna");
+let loginCorreo = new ObjetoCotizador ("Con correo", 200, "baja");
+let loginRedes = new ObjetoCotizador ("Con redes", 700, "Alta");
 
-    i++;
+//Array de objetos
 
-    if (i === 11) {
-        alert(`Felicidades, ya contaste hasta 10 ¡Estas relajado :)!`);
+const cotizador = [];
 
+//Funcion recopiladora de tipo de tecnologia
+function recopiladorUno (){
+  let tecnologia = Number(prompt("Seleccione el tipo de tecnologia de su app: (1) Nativa, (2) Hibrida, (3) PWA)"));
+    if (tecnologia === 1) {
+      return cotizador.push(tecnologiaUno);
     }
-
+    if (tecnologia === 2) {
+      return cotizador.push (tecnologiaDos);
+    }
+    if (tecnologia ===3) {
+      return cotizador.push (tecnologiaTres);
+    } else{
+      alert("Ingresa una selección válida")
+    }
 }
 
-*/
-
-// Desafio entregable #1 
-
-const basica = {
-  valor: 25000
-};
-
-const empresarial = {
-  valor: 35000
-};
-
-const ecommerce = {
-  valor: 55000
-};
-
-const basico = {
-  valor: 55000
-};
-
-const intermedio = {
-  valor: 65000
-};
-
-const avanzado = {
-  valor: 85000
-};
-
-let data1 = () => {
-
-  do {
-   let so = prompt("Seleciona el tipo de app: (1) para basica (2) para empresarial (3) para ecommerce"); 
-
-          if (so == 1) {
-               alert ("Selecionaste básica")
-               {
-                   return parseInt (basica.valor)
-               }
-          }
-
-          if (so == 2) {
-              alert ("Selecionaste empresarial")
-              {
-                  return parseInt (empresarial.valor)
-              }
-          }
-
-          if (so == 3) {
-              alert ("Selecionaste ecommerce")
-              {
-                  return parseInt (ecommerce.valor)
-              }
-          }
-
-          if (so != (1) || (2) || (3)) {
-              alert("Error, escoge una opcion valida")
-          }
-   }
-
-   while (data1 = Number) }
-
-let data2 = () => {
-
-      do {
-          
-      
-      let app = prompt("Seleciona el tipo de app: (1) para nativa, (2) para Hibrida, (3) para web")
-
-      if (app == 1 ){
-          alert ("Escogiste basico"); {
-          return parseInt (basico.valor);
-  }
-  }
-
-      if (app == 2 ){
-      alert ("Escogiste intermedio"); {
-      return parseInt (intermedio.valor);
-  }                            
-  }
-
-  if (app == 3 ){
-      alert ("Escogiste avanzado"); {
-      return parseInt (avanzado.valor);
-  }  
-  }       
-  
-  if (app != (1) || (2) || (3)) {
-      alert("Error, escoge una opcion valida")
-  }
-
-  } while (data2 = Number);
-
+//Funcion recopiladora de tipo de sistema operativo
+function recopiladorDos (){
+  let sistemaOp = Number(prompt("Seleccione el tipo de tecnologia de su app: (1) Android, (2) iOS, (3)Web App)"));
+    if (sistemaOp === 1) {
+      return cotizador.push(sistemaOperativoUno);
+    }
+    if (sistemaOp === 2) {
+      return cotizador.push (sistemaOperativoDos);
+    }
+    if (sistemaOp ===3) {
+      return cotizador.push (sistemaOperativoUno);
+    } else{
+      alert("Ingresa una selección válida")
+    }
 }
 
+//Llamado de funciones
+recopiladorUno();
+recopiladorDos();
 
-function sumarDatos() {
-   let dato1 = data1 ()
-   let dato2 = data2 ()
+//Console log mostrando los objetos que se agregaron al array utilizando el metodo push como retorno de una funcion desde la seleccion de usuario
+console.log(cotizador);
+//Sumar los valores del precio usando metodo .reduce
+const total = cotizador.reduce((acc, el) => acc + el.precio, 0)
 
-   let sumar = dato1+ dato2;
-
-   console.log(dato1);
-   console.log(dato2);
-   alert(`El valor de tu app es de: $${sumar} dolares`);
-}
-
-sumarDatos();
-
-
+//Salida de la app
+alert(`El valor de tu app es de $${total}`);
