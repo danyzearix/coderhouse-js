@@ -33,6 +33,38 @@ let nologin = new ObjetoCotizador ("Sin login", 0, "ninguna");
 let loginCorreo = new ObjetoCotizador ("Con correo", 200, "baja");
 let loginRedes = new ObjetoCotizador ("Con redes", 700, "Alta");
 
+//Tipo de app
+let tipoInformativa = new ObjetoCotizador ("Informativa", 200, "baja");
+let tipoEmpresa = new ObjetoCotizador ("Empresa", 500, "media");
+let tipoServicios = new ObjetoCotizador ("Servicios", 700, "media");
+let tipoJuego = new ObjetoCotizador ("Juego", 1500, "alta");
+
+//Carácteristicas mapa
+let mapaLibre = new ObjetoCotizador ("Mapa open source", 500, "baja");
+let mapaGoogle = new ObjetoCotizador ("Mapa Google", 2000, "alta");
+let mapaNone = new ObjetoCotizador ("Sin mapa", 0, "baja");
+
+//Caracteristicas enlace web
+let enlaceWeb = new ObjetoCotizador ("Conectar con página web", 1000, "alta");
+let EnlaceWebNo = new ObjetoCotizador ("Sin enlace ", 0, "baja");
+
+//Panel de admistrador 
+let panelAdminInto = new ObjetoCotizador ("Panel en app", 2000, "baja");
+let panelAdminOther = new ObjetoCotizador ("Panel en app diferente", 5000, "alta");
+let sinPanel = new ObjetoCotizador ("Sin panel", 0, "baja");
+
+//Idioma 
+let dosIdiomas = new ObjetoCotizador ("Dos idiomas", 1000, "baja");
+let tresIdiomas = new ObjetoCotizador ("Tres idiomas", 2000, "media");
+let cuatroIdiomas = new ObjetoCotizador ("Cuatro idiomas", 3000, "alta");
+
+
+//Control de flujos 
+
+function inicializador() {
+  
+}
+
 //Array de objetos
 
 const cotizador = [];
@@ -41,7 +73,9 @@ const cotizador = [];
 function recopiladorUno (){
   let tecnologia = Number(prompt("Seleccione el tipo de tecnologia de su app: (1) Nativa, (2) Hibrida, (3) PWA)"));
     if (tecnologia === 1) {
-      return cotizador.push(tecnologiaUno);
+      recopiladorDos();
+      return cotizador.push(tecnologiaUno); 
+
     }
     if (tecnologia === 2) {
       return cotizador.push (tecnologiaDos);
@@ -69,9 +103,13 @@ function recopiladorDos (){
     }
 }
 
+function recopiladorWeb (){
+  let 
+}
+
 //Llamado de funciones
 recopiladorUno();
-recopiladorDos();
+
 
 //Console log mostrando los objetos que se agregaron al array utilizando el metodo push como retorno de una funcion desde la seleccion de usuario
 console.log(cotizador);
