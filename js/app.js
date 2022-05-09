@@ -11,14 +11,13 @@ class ObjetoCotizador{
 //Crear objetos 
 
 //Tipo de tecnologia
-let tecnologiaUno = new ObjetoCotizador ("Nativa", 2500, "alta");
-let tecnologiaDos = new ObjetoCotizador ("Hibrida", 3000, "media");
+let tecnologiaUno = new ObjetoCotizador ("Nativa", 3000, "alta");
+let tecnologiaDos = new ObjetoCotizador ("Hibrida", 2500, "media");
 let tecnologiaTres = new ObjetoCotizador ("PWA", 1500, "baja")
 
 //Sistemas operativos nativos
 let sistemaOperativoUno = new ObjetoCotizador ("Android", 1500, "media");
 let sistemaOperativoDos = new ObjetoCotizador ("iOS", 2500, "alta");
-let sistemaOperativoTres = new ObjetoCotizador ("WebApp", 1000, "baja");
 
 //Sistema hibrido
 let sistemaHibrido = new ObjetoCotizador ("Android y iOS", 5000, "alta");
@@ -78,9 +77,11 @@ function recopiladorUno (){
 
     }
     if (tecnologia === 2) {
+      recopiladorDos();
       return cotizador.push (tecnologiaDos);
     }
     if (tecnologia ===3) {
+      recopiladorDiseño();
       return cotizador.push (tecnologiaTres);
     } else{
       alert("Ingresa una selección válida")
@@ -89,23 +90,108 @@ function recopiladorUno (){
 
 //Funcion recopiladora de tipo de sistema operativo
 function recopiladorDos (){
-  let sistemaOp = Number(prompt("Seleccione el tipo de tecnologia de su app: (1) Android, (2) iOS, (3)Web App)"));
+  let sistemaOp = Number(prompt("Seleccione el tipo de tecnologia de su app: (1) Android, (2) iOS, (3)Android & iOS:"));
     if (sistemaOp === 1) {
+      recopiladorDiseño ()
       return cotizador.push(sistemaOperativoUno);
     }
     if (sistemaOp === 2) {
+      recopiladorDiseño ()
       return cotizador.push (sistemaOperativoDos);
-    }
-    if (sistemaOp ===3) {
-      return cotizador.push (sistemaOperativoUno);
+    } 
+    if (sistemaOp === 3) {
+      recopiladorDiseño ()
+      return cotizador.push (sistemaHibrido);
     } else{
       alert("Ingresa una selección válida")
     }
 }
 
-function recopiladorWeb (){
-  let 
+//Funcion recopiladora de diseño
+function recopiladorDiseño (){
+  let diseno = Number(prompt("Selecione el tipo de diseño para su app: (1) Plantilla, (2) Propio, (3) Avanzado a medida:"));
+  
+  if (diseno === 1) {
+    recopiladorLogin ();
+    return cotizador.push(plantilla);
+  }
+  if (diseno === 2) {
+    recopiladorLogin ();
+    return cotizador.push (propio);
+  }
+  if (diseno ===3) {
+    recopiladorLogin ();
+    return cotizador.push (avanzado);
+  } else{
+    alert("Ingresa una selección válida")
+  }
 }
+
+//Funcion recopiladora de login
+function recopiladorLogin (){
+  let login = Number(prompt("Selecione el tipo de login para su app: (1) Sin login, (2) Login por correo, (3) Login con correo y redes sociales:"));
+  
+  if (login === 1) {
+    recopiladorCategoria ()
+    return cotizador.push(nologin);
+  }
+  if (login === 2) {
+    recopiladorCategoria ()
+    return cotizador.push (loginCorreo);
+  }
+  if (login ===3) {
+    recopiladorCategoria ()
+    return cotizador.push (loginRedes);
+  } else{
+    alert("Ingresa una selección válida")
+  }
+}
+
+//Funcion recopiladora categoria de app
+function recopiladorCategoria (){
+  let categoria = Number(prompt("Selecione el tipo de categoria de la app: (1) Informativa, (2) Empresarial, (3) Servicios, (4) Videojuego:"));
+  
+  if (categoria === 1) {
+    recopiladorMapa ()
+    return cotizador.push(tipoInformativa);
+  }
+  if (categoria === 2) {
+    recopiladorMapa ()
+    return cotizador.push (tipoEmpresa);
+  }
+  if (categoria ===3) {
+    recopiladorMapa ()
+    return cotizador.push (tipoServicios);
+  } 
+  if (categoria === 4) {
+    recopiladorMapa ()
+    return cotizador.push(tipoJuego);
+  }
+  else{
+    alert("Ingresa una selección válida")
+  }
+}
+
+//Funcion recopiladora de mapa
+function recopiladorMapa (){
+  let mapa = Number(prompt("Seleccione el tipo de caracteristica mapa que desea en su app:  (1) Mapa gratuito, (2) Google Maps, (3) Sin mapa:"));
+  
+  if (mapa === 1) {
+    
+    return cotizador.push(mapaLibre);
+  }
+  if (mapa === 2) {
+    
+    return cotizador.push (mapaGoogle);
+  }
+  if (mapa ===3) {
+    
+    return cotizador.push (mapaNone);
+  } else{
+    alert("Ingresa una selección válida")
+  }
+}
+
 
 //Llamado de funciones
 recopiladorUno();

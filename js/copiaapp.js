@@ -1,5 +1,5 @@
 
-
+/*
 // Desafio entregable #1 
 
 const basica = {
@@ -105,3 +105,20 @@ const basica = {
   }
   
   sumarDatos();
+
+  */
+
+  unction recopiladorDos (){
+    let sistemaOp = Number(prompt("Seleccione el tipo de tecnologia de su app: (1) Android, (2) iOS, (3)Web App)"));
+      if (sistemaOp === 1) {
+        return cotizador.push(sistemaOperativoUno);
+      }
+      if (sistemaOp === 2) {
+        return cotizador.push (sistemaOperativoDos);
+      }
+      if (sistemaOp ===3) {
+        return cotizador.push (sistemaOperativoUno);
+      } else{
+        alert("Ingresa una selección válida")
+      }
+  }
