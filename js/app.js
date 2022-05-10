@@ -45,14 +45,15 @@ let mapaNone = new ObjetoCotizador ("Sin mapa", 0, "baja");
 
 //Caracteristicas enlace web
 let enlaceWeb = new ObjetoCotizador ("Conectar con página web", 1000, "alta");
-let EnlaceWebNo = new ObjetoCotizador ("Sin enlace ", 0, "baja");
+let enlaceWebNo = new ObjetoCotizador ("Sin enlace ", 0, "baja");
 
 //Panel de admistrador 
 let panelAdminInto = new ObjetoCotizador ("Panel en app", 2000, "baja");
 let panelAdminOther = new ObjetoCotizador ("Panel en app diferente", 5000, "alta");
 let sinPanel = new ObjetoCotizador ("Sin panel", 0, "baja");
 
-//Idioma 
+//Idioma
+let unIdioma = new ObjetoCotizador ("Un idioma", 500, "alta"); 
 let dosIdiomas = new ObjetoCotizador ("Dos idiomas", 1000, "baja");
 let tresIdiomas = new ObjetoCotizador ("Tres idiomas", 2000, "media");
 let cuatroIdiomas = new ObjetoCotizador ("Cuatro idiomas", 3000, "alta");
@@ -60,9 +61,10 @@ let cuatroIdiomas = new ObjetoCotizador ("Cuatro idiomas", 3000, "alta");
 
 //Control de flujos 
 
-function inicializador() {
+//No recuerdo para que la puse 
+//function inicializador() {};
   
-}
+//
 
 //Array de objetos
 
@@ -84,7 +86,8 @@ function recopiladorUno (){
       recopiladorDiseño();
       return cotizador.push (tecnologiaTres);
     } else{
-      alert("Ingresa una selección válida")
+      alert("Ingresa una selección válida");
+      recopiladorUno ();
     }
 }
 
@@ -103,7 +106,8 @@ function recopiladorDos (){
       recopiladorDiseño ()
       return cotizador.push (sistemaHibrido);
     } else{
-      alert("Ingresa una selección válida")
+      alert("Ingresa una selección válida");
+      recopiladorDos ();
     }
 }
 
@@ -123,7 +127,8 @@ function recopiladorDiseño (){
     recopiladorLogin ();
     return cotizador.push (avanzado);
   } else{
-    alert("Ingresa una selección válida")
+    alert("Ingresa una selección válida");
+    recopiladorDiseño ();
   }
 }
 
@@ -143,7 +148,8 @@ function recopiladorLogin (){
     recopiladorCategoria ()
     return cotizador.push (loginRedes);
   } else{
-    alert("Ingresa una selección válida")
+    alert("Ingresa una selección válida");
+    recopiladorLogin ();  
   }
 }
 
@@ -152,23 +158,24 @@ function recopiladorCategoria (){
   let categoria = Number(prompt("Selecione el tipo de categoria de la app: (1) Informativa, (2) Empresarial, (3) Servicios, (4) Videojuego:"));
   
   if (categoria === 1) {
-    recopiladorMapa ()
+    recopiladorMapa ();
     return cotizador.push(tipoInformativa);
   }
   if (categoria === 2) {
-    recopiladorMapa ()
+    recopiladorMapa ();
     return cotizador.push (tipoEmpresa);
   }
   if (categoria ===3) {
-    recopiladorMapa ()
+    recopiladorMapa ();
     return cotizador.push (tipoServicios);
   } 
   if (categoria === 4) {
-    recopiladorMapa ()
+    recopiladorMapa ();
     return cotizador.push(tipoJuego);
   }
   else{
-    alert("Ingresa una selección válida")
+    alert("Ingresa una selección válida");
+    recopiladorCategoria ()
   }
 }
 
@@ -177,18 +184,84 @@ function recopiladorMapa (){
   let mapa = Number(prompt("Seleccione el tipo de caracteristica mapa que desea en su app:  (1) Mapa gratuito, (2) Google Maps, (3) Sin mapa:"));
   
   if (mapa === 1) {
-    
+    recopiladorEnlace ();
     return cotizador.push(mapaLibre);
   }
   if (mapa === 2) {
-    
+    recopiladorEnlace ();
     return cotizador.push (mapaGoogle);
   }
   if (mapa ===3) {
-    
+    recopiladorEnlace ();
     return cotizador.push (mapaNone);
   } else{
-    alert("Ingresa una selección válida")
+    alert("Ingresa una selección válida");
+    recopiladorMapa ();
+  }
+}
+
+//Funcion recopiladora de enlace web
+function recopiladorEnlace (){
+  let enlace = Number(prompt("Desea conectar su app con una página web?:  (1) Si, (2) No:"));
+  
+  if (enlace === 1) {
+    recopiladorPanel ();
+    return cotizador.push(enlaceWeb);
+  }
+  if (enlace === 2) {
+    recopiladorPanel ();
+    return cotizador.push (enlaceWebNo);
+  } else{
+    alert("Ingresa una selección válida");
+    recopiladorEnlace ();
+  }
+}
+
+//Funcion recopiladora de panel
+function recopiladorPanel (){
+  let panel = Number(prompt("Seleccione el tipo de panel administrador de su app:  (1) Panel en misma app, (2) Panel en otra app, (3) Sin panel:"));
+  
+  if (panel === 1) {
+    recopiladorIdioma ();
+    return cotizador.push(panelAdminInto);
+  }
+  if (panel === 2) {
+    recopiladorIdioma ();
+    return cotizador.push (panelAdminOther);
+  }
+  if (panel ===3) {
+    recopiladorIdioma ();
+    return cotizador.push (sinPanel);
+  } else{
+    alert("Ingresa una selección válida");
+    recopiladorPanel ();
+  }
+}
+
+//Funcion recopiladora de idioma
+function recopiladorIdioma (){
+  let panel = Number(prompt("Seleccione la cantidad de idiomas que tendrá su app:  (1) Dos, (2) Tres, (3) Cuatro:"));
+  
+  if (panel === 1) {
+    
+    return cotizador.push(unIdioma);
+  }
+  if (panel === 2) {
+    
+    return cotizador.push (dosIdiomas);
+  }
+  if (panel ===3) {
+    
+    return cotizador.push (tresIdiomas);
+  } 
+  if (panel ===3) {
+    
+      return cotizador.push (cuatroIdiomas);
+  }
+
+  else{
+    alert("Ingresa una selección válida");
+    recopiladorIdioma ();
   }
 }
 
@@ -204,3 +277,4 @@ const total = cotizador.reduce((acc, el) => acc + el.precio, 0)
 
 //Salida de la app
 alert(`El valor de tu app es de $${total}`);
+
