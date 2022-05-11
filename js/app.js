@@ -272,9 +272,27 @@ recopiladorUno();
 
 //Console log mostrando los objetos que se agregaron al array utilizando el metodo push como retorno de una funcion desde la seleccion de usuario
 console.log(cotizador);
+
 //Sumar los valores del precio usando metodo .reduce
 const total = cotizador.reduce((acc, el) => acc + el.precio, 0)
 
 //Salida de la app
-alert(`El valor de tu app es de $${total}`);
+
+//Crear img en introducirlo en una caja 
+
+let imagen = document.createElement("img");
+imagen.src = "img/app.gif";
+imagen.height = "200";
+imagen.width = "200";
+
+let pintarImagen = document.querySelector("#boxImg");
+pintarImagen.append(imagen);
+
+// Crear el HTML con el resultado de la cotización
+let prueba = document.createElement ("h1");
+prueba.textContent = `El valor de tu app es de $ ${total} dólares`
+
+let resultadoImpreso = document.querySelector("#boxResult");
+resultadoImpreso.appendChild(prueba);
+
 
