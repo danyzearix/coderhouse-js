@@ -9,7 +9,6 @@ class ObjetoCotizador{
 };
 
 //Crear objetos 
-
 //Tipo de tecnologia
 let tecnologiaUno = new ObjetoCotizador ("Nativa", 3000, "alta");
 let tecnologiaDos = new ObjetoCotizador ("Hibrida", 2500, "media");
@@ -57,14 +56,6 @@ let unIdioma = new ObjetoCotizador ("Un idioma", 500, "alta");
 let dosIdiomas = new ObjetoCotizador ("Dos idiomas", 1000, "baja");
 let tresIdiomas = new ObjetoCotizador ("Tres idiomas", 2000, "media");
 let cuatroIdiomas = new ObjetoCotizador ("Cuatro idiomas", 3000, "alta");
-
-
-//Control de flujos 
-
-//No recuerdo para que la puse 
-//function inicializador() {};
-  
-//
 
 //Array de objetos
 
@@ -265,46 +256,47 @@ function recopiladorIdioma (){
   }
 }
 
+//Crear boton iniciador del cotizador
 
-//Llamado de funciones
-recopiladorUno();
+let botonIniciador = document.querySelector("#botonInicial");
+botonIniciador.addEventListener("click", () => {
+  //Llamar el primer recopilador
+  recopiladorUno();
 
+  //Crear el boton con el resultado en el HTML
+  let = botonResultado = document.createElement ("button");
+  botonResultado.type = "button";
+  botonResultado.textContent = "Ver resultado";
+  botonResultado.className = "boton";
 
-//Console log mostrando los objetos que se agregaron al array utilizando el metodo push como retorno de una funcion desde la seleccion de usuario
-console.log(cotizador);
-
-//Sumar los valores del precio usando metodo .reduce
-const total = cotizador.reduce((acc, el) => acc + el.precio, 0)
-
-//Salida de la app
-//Crear botón para ver el resultado
-let = botonResultado = document.createElement ("button");
-botonResultado.type = "button";
-botonResultado.textContent = "Ver resultado";
-botonResultado.className = "boton";
-
-
-let insertarBoton = document.querySelector("main");
-insertarBoton.appendChild (botonResultado);
-
-//Evento de escucha para dibujar el html con el resultado
-botonResultado.addEventListener("click", () => {
-  let imagen = document.createElement("img");
-  imagen.src = "img/app.gif";
-  imagen.height = "200";
-  imagen.width = "200";
+  let insertarBoton = document.querySelector("main");
+  insertarBoton.appendChild (botonResultado);
+  //Crear evento de escucha clic
+  botonResultado.addEventListener("click", () => {
   
-  let pintarImagen = document.querySelector("#boxImg");
-  pintarImagen.append(imagen);
+  //Sumar la recopilación del array y devolver el total con el metodo reduce
+    let total = cotizador.reduce((acc, el) => acc + el.precio, 0);
+  //Crear un elemento HTML image 
+    let imagen = document.createElement("img");
+    imagen.src = "img/app.gif";
+    imagen.height = "200";
+    imagen.width = "200";
+    
+    let pintarImagen = document.querySelector("#boxImg");
+    pintarImagen.append(imagen);
+    
+    // Crear el HTML con el resultado de la cotización
+    let prueba = document.createElement ("h1");
+    prueba.textContent = `El valor de tu app es de $ ${total} dólares`
+    
+    let resultadoImpreso = document.querySelector("#boxResult");
+    resultadoImpreso.appendChild(prueba);
   
-  // Crear el HTML con el resultado de la cotización
-  let prueba = document.createElement ("h1");
-  prueba.textContent = `El valor de tu app es de $ ${total} dólares`
-  
-  let resultadoImpreso = document.querySelector("#boxResult");
-  resultadoImpreso.appendChild(prueba);
+    //Remover el html que ya no se necesita
+    botonResultado.remove();
+    botonInicial.remove()
+    formulario.remove()
+  }
+  );
 
-  //Remover el boton creado
-  botonResultado.remove();
-}
-)
+})
