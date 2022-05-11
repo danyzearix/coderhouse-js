@@ -277,10 +277,39 @@ console.log(cotizador);
 const total = cotizador.reduce((acc, el) => acc + el.precio, 0)
 
 //Salida de la app
+//Crear botón para ver el resultado
+let = botonResultado = document.createElement ("button");
+botonResultado.type = "button";
+botonResultado.textContent = "Ver resultado";
+botonResultado.className = "boton";
+
+
+let insertarBoton = document.querySelector("main");
+insertarBoton.appendChild (botonResultado);
+
+botonResultado.addEventListener("click", () => {
+  let imagen = document.createElement("img");
+  imagen.src = "img/app.gif";
+  imagen.height = "200";
+  imagen.width = "200";
+  
+  let pintarImagen = document.querySelector("#boxImg");
+  pintarImagen.append(imagen);
+  
+  // Crear el HTML con el resultado de la cotización
+  let prueba = document.createElement ("h1");
+  prueba.textContent = `El valor de tu app es de $ ${total} dólares`
+  
+  let resultadoImpreso = document.querySelector("#boxResult");
+  resultadoImpreso.appendChild(prueba);
+
+  botonResultado.remove();
+}
+)
 
 //Crear img en introducirlo en una caja 
 
-let imagen = document.createElement("img");
+/*  let imagen = document.createElement("img");
 imagen.src = "img/app.gif";
 imagen.height = "200";
 imagen.width = "200";
@@ -294,5 +323,6 @@ prueba.textContent = `El valor de tu app es de $ ${total} dólares`
 
 let resultadoImpreso = document.querySelector("#boxResult");
 resultadoImpreso.appendChild(prueba);
+*/
 
 
