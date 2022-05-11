@@ -287,6 +287,7 @@ botonResultado.className = "boton";
 let insertarBoton = document.querySelector("main");
 insertarBoton.appendChild (botonResultado);
 
+//Evento de escucha para dibujar el html con el resultado
 botonResultado.addEventListener("click", () => {
   let imagen = document.createElement("img");
   imagen.src = "img/app.gif";
@@ -303,26 +304,7 @@ botonResultado.addEventListener("click", () => {
   let resultadoImpreso = document.querySelector("#boxResult");
   resultadoImpreso.appendChild(prueba);
 
+  //Remover el boton creado
   botonResultado.remove();
 }
 )
-
-//Crear img en introducirlo en una caja 
-
-/*  let imagen = document.createElement("img");
-imagen.src = "img/app.gif";
-imagen.height = "200";
-imagen.width = "200";
-
-let pintarImagen = document.querySelector("#boxImg");
-pintarImagen.append(imagen);
-
-// Crear el HTML con el resultado de la cotización
-let prueba = document.createElement ("h1");
-prueba.textContent = `El valor de tu app es de $ ${total} dólares`
-
-let resultadoImpreso = document.querySelector("#boxResult");
-resultadoImpreso.appendChild(prueba);
-*/
-
-
