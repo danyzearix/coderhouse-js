@@ -1,0 +1,32 @@
+#cardContainer{
+    padding-top: 2rem;
+}
+
+.selectionCard {
+    transition: background-color .5s;
+    border-radius: 10px;
+    
+}
+
+.selectionCard:hover {
+    background-color: #2C9184;
+    transform: translateY(2px);
+    border-radius: 10px;
+}
+
+.titulo{
+    color: #2C9184;
+    padding-top: 2rem;
+}
+
+.buttonInit{
+    text-transform: uppercase;
+    -webkit-box-shadow: 2px 1px 22px -3px #000000; 
+    box-shadow: 1px 1px 12px -3px #000000;
+}
+
+.buttonInit:hover {
+    background-color: aqua;
+    transform: translatey(2px);
+    transform: scale(0.95);
+}
