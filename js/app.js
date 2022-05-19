@@ -3,7 +3,7 @@ let capturarNombre = document.getElementById("userName")
 
 botonNombre.addEventListener("click", () => {
     sessionStorage.setItem("User",capturarNombre.value)
-    Swal.fire(`${capturarNombre.value} ya puedes iniciar a cotizar, busca el boton iniciar cotización`)
+    Swal.fire(`${capturarNombre?.value} ya puedes iniciar a cotizar, busca el boton iniciar cotización`)
 })
 
 
