@@ -85,15 +85,15 @@ iniciar.addEventListener("click", () => {
     section1.innerHTML = `<div class="container py-5"></div>
     <div class="row justify-content-around text-center">
       <div class="col-4 selectionCard">
-        <img src="/src/nativa.svg" id="nativa" alt="">
+        <img src="src/nativa.svg" id="nativa" alt="">
         <h1>Nativa</h1>
       </div>
       <div class="col-4 selectionCard" >
-        <img src="/src/hibrida.svg" id="hibrida" alt="">
+        <img src="src/hibrida.svg" id="hibrida" alt="">
           <h1>Hibrida</h1>
       </div>
       <div class="col-4 selectionCard" >
-        <img src="/src/webapp.svg" id="webapp" alt="">
+        <img src="src/webapp.svg" id="webapp" alt="">
           <h1>WebApp</h1>
       </div>
     </div>
@@ -168,11 +168,11 @@ function sectionTwo() {
     section2.innerHTML = `<div class="container py-5 id="prueba"></div>
     <div class="row justify-content-around text-center">
       <div class="col-4 selectionCard">
-        <img src="/src/android.svg" id="android" alt="">
+        <img src="src/android.svg" id="android" alt="">
         <h1>Android</h1>
       </div>
       <div class="col-4 selectionCard" >
-        <img src="/src/ios.svg" id="ios" alt="">
+        <img src="src/ios.svg" id="ios" alt="">
           <h1>iOS</h1>
       </div>
     </div>
