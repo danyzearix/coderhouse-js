@@ -1,3 +1,27 @@
+function trm() {
+  fetch("../data/dolarapi.json")
+      .then ( respuesta => {
+          return respuesta.json()
+      })
+      .then (resultado => {
+          mostrarResultado(resultado)
+      })
+}
+
+function mostrarResultado({dolar}) {
+  let dolarHoy = document.querySelector("#dolarHoy")
+
+  dolarHoy.innerHTML = `<p> $1 dolar es igual a  $${dolar} COP </p>`
+}
+
+trm();
+
+
+
+
+
+
+
 let botonNombre = document.getElementById("enviarNombre")
 let capturarNombre = document.getElementById("userName")
 
@@ -239,9 +263,6 @@ function finalizar() {
 
 
 }) //Cierre de funcion inciar addEvent
-
-
-//Funciones de creación HTML
 
 
 
