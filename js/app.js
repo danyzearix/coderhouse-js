@@ -1,5 +1,5 @@
 function trm() {
-  fetch("../data/dolarapi.json")
+  fetch("./data/dolarapi.json")
       .then ( respuesta => {
           return respuesta.json()
       })
