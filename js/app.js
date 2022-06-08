@@ -1,4 +1,4 @@
-setTimeout (function trm() {
+function trm() {
   fetch("../data/dolarapi.json")
 
       .then ( respuesta => {
@@ -7,7 +7,9 @@ setTimeout (function trm() {
       .then (resultado => {
           mostrarResultado(resultado)
       })
-}, 2000)
+}
+
+trm();
 
 //console.log(typeof localStorage.value)
 let sesionactiva = localStorage.getItem("User")
