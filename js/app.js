@@ -67,7 +67,7 @@ function trm() {
       .then (resultado => {
           mostrarResultado(resultado)
       })
-}, 2000)
+}}, 2000)
 
 //Función que selecciona el id del espacio reservado para renderizar la tasa del mercado
 function mostrarResultado({dolar}) {
