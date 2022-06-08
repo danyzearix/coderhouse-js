@@ -1,3 +1,13 @@
+setTimeout (function trm() {
+  fetch("./data/dolarapi.json")
+
+      .then ( respuesta => {
+          return respuesta.json()
+      })
+      .then (resultado => {
+          mostrarResultado(resultado)
+      })
+}, 2000)
 
 //console.log(typeof localStorage.value)
 let sesionactiva = localStorage.getItem("User")
@@ -53,23 +63,6 @@ if (sesionactiva === null) {
   renderNuevo.innerHTML = `<p>Prueba<p/>`
   }
 
-
-//Promesa y fetch que trae la TRM de un JSON genérico.
-//SetTimeout de 1.5 segundos simulando la latencia en la respuesta del servidor
-setTimeout (function trm() {
-  fetch("../data/dolarapi.json")
-function trm() {
-  fetch("./data/dolarapi.json")
-
-      .then ( respuesta => {
-          return respuesta.json()
-      })
-      .then (resultado => {
-          mostrarResultado(resultado)
-      })
-}}, 2000)
-
-//Función que selecciona el id del espacio reservado para renderizar la tasa del mercado
 function mostrarResultado({dolar}) {
   let dolarHoy = document.querySelector("#dolarHoy")
 
