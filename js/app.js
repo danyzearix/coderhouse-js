@@ -344,7 +344,7 @@ selecion9.addEventListener("click", () => {
   arrayVacio.push(nologin)
   section4.remove();
   console.log(arrayVacio);
-  sectionFive();
+  finalizar();
 }
 )
 let selecion10 = document.querySelector("#loginCorreo");
@@ -353,7 +353,7 @@ selecion10.addEventListener("click", () => {
   arrayVacio.push(loginCorreo)
   section4.remove();
   console.log(arrayVacio);
-  sectionFive();
+  finalizar();
 }
 )
 
@@ -363,8 +363,28 @@ selecion11.addEventListener("click", () => {
   arrayVacio.push(loginCorreo)
   section4.remove();
   console.log(arrayVacio);
-  sectionFive();
+  finalizar();
 }
 )
 
 }//cierre de funcion four
+
+function finalizar() {
+  let final = document.createElement("div")
+  final.innerHTML = `<div class="container-fluid d-flex justify-content-center py-5 id="prueba"><button class="btn btn-primary"id="finalizar">Cotizar</button> 
+  <button id="refresh">Recargar</button> </div>`
+  document.body.appendChild(final);
+
+  let refresh = document.getElementById('refresh');
+  refresh.addEventListener('click', _ => {
+            location.reload();
+})
+
+  final.addEventListener("click", () => {
+
+  let total = arrayVacio.reduce((acc, el) => acc + el.precio, 0);
+  Swal.fire(`El precio de la app es $${total}`)
+  console.log(total)
+  
+})
+}
